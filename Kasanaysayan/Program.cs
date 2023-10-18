@@ -64,6 +64,7 @@ namespace Kasanaysayan
 
             while (true)
             {
+                // 
 
                 Console.WriteLine("The three priests who were martyred are collectively called _____. These priests are ___, ____, and _____.");
                 string[] correctAnswers = { "GOMBURZA", "Gomez", "Burgos", "Zamora" };
@@ -80,10 +81,10 @@ namespace Kasanaysayan
                 {
                     Console.WriteLine("You are correct!");
 
-                    Console.WriteLine(correctAnswers[0]);
-                    Console.WriteLine(correctAnswers[1]);
-                    Console.WriteLine(correctAnswers[2]);
-                    Console.WriteLine(correctAnswers[3]);
+                    Console.Write(correctAnswers[0] + " ");
+                    Console.Write(correctAnswers[1] + " ");
+                    Console.Write(correctAnswers[2] + " ");
+                    Console.Write(correctAnswers[3] + " ");
                     test();
                     break;
                     
