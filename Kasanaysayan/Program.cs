@@ -30,8 +30,18 @@ namespace Kasanaysayan
      \\\;;:;:_:--:\:_:--:_;:;\    
       \\\_.-""      :      ""-._\
        \`_..--""""--.;.--""""--.._=>");
+            Console.WriteLine(@"
+ __                                                                                            
+[  |  _                                                                                        
+ | | / ]  ,--.   .--.   ,--.   _ .--.   ,--.    _   __  .--.   ,--.    _   __  ,--.   _ .--.   
+ | '' <  `'_\ : ( (`\] `'_\ : [ `.-. | `'_\ :  [ \ [  ]( (`\] `'_\ :  [ \ [  ]`'_\ : [ `.-. |  
+ | |`\ \ // | |, `'.'. // | |, | | | | // | |,  \ '/ /  `'.'. // | |,  \ '/ / // | |, | | | |  
+[__|  \_]\'-;__/[\__) )\'-;__/[___||__]\'-;__/[\_:  /  [\__) )\'-;__/[\_:  /  \'-;__/[___||__] 
+                                               \__.'                  \__.'                    
+");
+
             string pressAnyKey = "PRESS ANY KEY TO START.";
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (pressAnyKey.Length / 2)) + "}", pressAnyKey));
             Console.ForegroundColor = ConsoleColor.White;
             Console.ReadKey(true);
