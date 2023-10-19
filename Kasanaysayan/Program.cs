@@ -70,7 +70,7 @@ namespace Kasanaysayan
 
         static void Foreword()
         {
-            // Print("Welcome to Kasaysayan. By turning the cover, you have now been sucked inside the world of this storybook. Don’t be worried, though, because it is full of exciting and interesting stories of our own beloved country. The only thing is, we’re sure you’ll get tired after a while, and want to escape\r\n\r\nKasanaysayan is a short storybook focused on different events throughout Philippine history. The volume you are inside right now is focused on the period when the Philippines was fighting for independence from Spain. Read through the chapter, analyze their stories, then fill in the missing information at the end to make sure you got the right information before proceeding to the next chapter. Once you finish all 6 chapters, the book will finally let you out.\r\n\r\nBe warned, however! No one likes a historical revisionist. Filling in the wrong information too many times in one chapter will send you back to the start of that chapter\n\n", 10);
+					Print("Welcome to Kasaysayan. By turning the cover, you have now been sucked inside the world of this storybook. Don’t be worried, though, because it is full of exciting and interesting stories of our own beloved country. The only thing is, we’re sure you’ll get tired after a while, and want to escape\r\n\r\nKasanaysayan is a short storybook focused on different events throughout Philippine history. The volume you are inside right now is focused on the period when the Philippines was fighting for independence from Spain. Read through the chapter, analyze their stories, then fill in the missing information at the end to make sure you got the right information before proceeding to the next chapter. Once you finish all 6 chapters, the book will finally let you out.\r\n\r\nBe warned, however! No one likes a historical revisionist. Filling in the wrong information too many times in one chapter will send you back to the start of that chapter\n\n", 50);
             Console.ForegroundColor = ConsoleColor.Yellow;
             CenterText("Are you ready to begin?");
             Console.ForegroundColor = ConsoleColor.White;
@@ -90,7 +90,13 @@ namespace Kasanaysayan
 
         static void QuizGame()
         {
-            Console.WriteLine("A history book appears in front of you, with blank pages for you to seemingly fill in.");
+            Print("A history book appears in front of you, with blank pages for you to seemingly fill in.",50);
+						Thread.Sleep(5000);
+						Console.ForegroundColor = ConsoleColor.Yellow;
+						CenterText("Press any key to begin the quiz.");
+						Console.ForegroundColor = ConsoleColor.White;
+						Console.ReadKey(true);
+					
 
             string[] correctAnswers = { "GOMBURZA", "Gomez", "Burgos", "Zamora" };
             int score = 0;
