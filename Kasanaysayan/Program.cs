@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Kasanaysayan
 {
@@ -12,7 +13,6 @@ namespace Kasanaysayan
             Foreword();
             ChapterOne();
             QuizGame();
-            test();
         }
 
         static void CenterText(string text) // function to center text!
@@ -20,7 +20,33 @@ namespace Kasanaysayan
             Console.WriteLine(string.Format("{0," + ((Console.WindowWidth / 2) + (text.Length / 2)) + "}", text));
         }
 
-        static void Print(string text, int speed)
+        static string CenteredReadLine() // idg this
+        {
+            Console.SetCursorPosition((Console.WindowWidth - Console.CursorLeft) / 2, Console.CursorTop);
+            return Console.ReadLine();
+        }
+
+        static void Choice(string choice1, string choice2)
+        {
+            Console.Write("\nDo you ");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write(choice1.ToUpper());
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write(" or ");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write(choice2.ToUpper());
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write("?");
+            Console.WriteLine("");
+        }
+
+        static void Title(string text)
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            CenterText(text);
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+        static void Typewrite(string text, int speed)
         {
             foreach (char c in text)
             {
@@ -53,28 +79,24 @@ namespace Kasanaysayan
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("\n");
 
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            CenterText("PRESS ANY KEY TO START.");
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.ReadKey(true);
             Thread.Sleep(500);
-            Console.Clear();
 
-            Console.Write(string.Format("{0," + ((Console.WindowWidth / 2) + ("This is the story of ".Length / 2)) + "}", "This is the story of "));
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            currentPlayer.name = Console.ReadLine();
-            Console.ForegroundColor = ConsoleColor.White;
+            Title("PRESS ANY KEY TO START.");
+            Console.ReadKey(true);
+            Thread.Sleep(1000);
             Console.Clear();
-            // press to continue
         }
 
         static void Foreword()
         {
-            // Print("Welcome to Kasaysayan. By turning the cover, you have now been sucked inside the world of this storybook. Don’t be worried, though, because it is full of exciting and interesting stories of our own beloved country. The only thing is, we’re sure you’ll get tired after a while, and want to escape\r\n\r\nKasanaysayan is a short storybook focused on different events throughout Philippine history. The volume you are inside right now is focused on the period when the Philippines was fighting for independence from Spain. Read through the chapter, analyze their stories, then fill in the missing information at the end to make sure you got the right information before proceeding to the next chapter. Once you finish all 6 chapters, the book will finally let you out.\r\n\r\nBe warned, however! No one likes a historical revisionist. Filling in the wrong information too many times in one chapter will send you back to the start of that chapter\n\n", 10);
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            CenterText("Are you ready to begin?");
-            Console.ForegroundColor = ConsoleColor.White;
+            Typewrite("Welcome to Kasaysayan. By turning the cover, you have now been sucked inside the world of this storybook. Don’t be worried, though, because it is full of exciting and interesting stories of our own beloved country. The only thing is, we’re sure you’ll get tired after a while, and want to escape", 30);
+            Typewrite("\n\nKasanaysayan is a short storybook focused on different events throughout Philippine history. The volume you are inside right now is focused on the period when the Philippines was fighting for independence from Spain. Read through the chapter, analyze their stories, then fill in the missing information at the end to make sure you got the right information before proceeding to the next chapter. Once you finish all 6 chapters, the book will finally let you out.", 30);
+            Typewrite("\n\nBe warned, however! No one likes a historical revisionist. Filling in the wrong information too many times in one chapter will send you back to the start of that chapter, and filling too much wrong information throughout the book will alter your fate, and possibly give you a bad ending.\n", 30);
+
+            Title("What is your name, dear reader?");
+            currentPlayer.name = CenteredReadLine(); // understand the concept behind this pls
             Thread.Sleep(2000);
+
             CenterText("Press any key to continue.");
             Console.ReadKey(true);
             Console.Clear();
@@ -82,15 +104,29 @@ namespace Kasanaysayan
         }
         static void ChapterOne()
         {
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            CenterText("CHAPTER ONE: MAJOHA");
-            Console.ForegroundColor = ConsoleColor.White;
-            CenterText("You open your eyes to a colosseum-like scene, wherein you see ");
+            Title("CHAPTER ONE: MAJOHA\n");
+
+            CenterText(@"      ':.");
+            CenterText(@"         []_____");
+            CenterText(@"        /\      \");
+            CenterText(@"    ___/  \__/\__\__");
+            CenterText(@"---/\___\ |''''''|__\-- ---");
+            CenterText(@"   ||'''| |''||''|''|");
+            CenterText(@"   ``""""""`""`""""))""""`""""`");
+            Console.WriteLine("\nYou open your eyes to a colosseum-like scene, wherein you see three priests");
+            Choice("cry", "scream");
+            CenterText("Press any button to proceed.");
+            Console.ReadKey(true);
+            Thread.Sleep(1000);
+            Console.Clear();
+
         }
 
         static void QuizGame()
         {
-            Console.WriteLine("A history book appears in front of you, with blank pages for you to seemingly fill in.");
+
+            Typewrite("A history book appears in front of you, with blank pages for you to seemingly fill in.", 50);
+            Thread.Sleep(2000);
 
             string[] correctAnswers = { "GOMBURZA", "Gomez", "Burgos", "Zamora" };
             int score = 0;
@@ -98,12 +134,20 @@ namespace Kasanaysayan
             while (score < 4)
             {
                 Console.Clear();
-                CenterText(@"┌――――――――――――――――――┐");
-                CenterText(@"│     GOMBURZA     │");
-                CenterText(@"│      Gomez       │");
-                CenterText(@"│      Burgos      │");
-                CenterText(@"│      Zamora      │");
-                CenterText(@"└――――――――――――――――――┘");
+                CenterText(@"  __________________   __________________");
+                CenterText(@".-/|                  \ /                  |\-.");
+                CenterText(@"||||                   |                   ||||");
+                CenterText(@"||||                   |     GOMBURZA      ||||");
+                CenterText(@"||||      Gomez        |                   ||||");
+                CenterText(@"||||                   |                   ||||");
+                CenterText(@"||||                   |                   ||||");
+                CenterText(@"||||                   |       Burgos      ||||");
+                CenterText(@"||||                   |                   ||||");
+                CenterText(@"||||      Zamora       |                   ||||");
+                CenterText(@"||||                   |                   ||||");
+                CenterText(@"||||__________________ | __________________||||");
+                CenterText(@"||/===================\|/===================\||)");
+                CenterText(@"`--------------------~___~-------------------''");
 
                 Console.WriteLine("\nThe three priests who were martyred are collectively called _____. These priests are ___, ____, and _____.");
                 string[] userAnswers = Console.ReadLine().Split(", ");
@@ -132,11 +176,5 @@ namespace Kasanaysayan
 
             Console.WriteLine("You got all of the items correct!");
         }
-
-        static void test()
-        {
-            Console.WriteLine("Congrats! You made it.");
-        }
-
     }
 }
