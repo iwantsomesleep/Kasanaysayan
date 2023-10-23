@@ -124,7 +124,6 @@ namespace Kasanaysayan
 
         static void QuizGame()
         {
-
             Typewrite("A history book appears in front of you, with blank pages for you to seemingly fill in.", 50);
             Thread.Sleep(2000);
 
