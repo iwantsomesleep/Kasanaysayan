@@ -7,12 +7,20 @@ namespace Kasanaysayan
     class Program
     {
         public static Player currentPlayer = new Player();
+			
         static void Main(string[] args)
         {
             Start();
             Foreword();
             ChapterOne();
-            QuizGame();
+						ChapterOneQuiz();
+						/*ChapterTwo();
+						ChapterThree();
+						ChapterFour();
+						ChapterFive();
+						ChapterSix();
+						Epilogue();
+						Afterword();*/
         }
 
         static void CenterText(string text) // function to center text!
@@ -20,13 +28,12 @@ namespace Kasanaysayan
             Console.WriteLine(string.Format("{0," + ((Console.WindowWidth / 2) + (text.Length / 2)) + "}", text));
         }
 
-        static string CenteredReadLine() // idg this
-        {
-            Console.SetCursorPosition((Console.WindowWidth - Console.CursorLeft) / 2, Console.CursorTop);
-            return Console.ReadLine();
-        }
-
-        static void Choice(string choice1, string choice2)
+				static string CenterReadLine()
+				{
+						Console.SetCursorPosition((Console.WindowWidth - Console.CursorLeft) / 2, Console.CursorTop);
+						return Console.ReadLine();
+				}
+        static void Choice(string choice1, string choice2, string choice3)
         {
             Console.Write("\nDo you ");
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -36,6 +43,10 @@ namespace Kasanaysayan
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write(choice2.ToUpper());
             Console.ForegroundColor = ConsoleColor.White;
+						Console.Write(" or ");
+						Console.ForegroundColor = ConsoleColor.Yellow;
+						Console.Write(choice3.ToUpper());
+						Console.ForegroundColor = ConsoleColor.White;
             Console.Write("?");
             Console.WriteLine("");
         }
@@ -43,7 +54,7 @@ namespace Kasanaysayan
         static void Title(string text)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
-            CenterText(text);
+            CenterText(text.ToUpper());
             Console.ForegroundColor = ConsoleColor.White;
         }
         static void Typewrite(string text, int speed)
@@ -94,7 +105,7 @@ namespace Kasanaysayan
             Typewrite("\n\nBe warned, however! No one likes a historical revisionist. Filling in the wrong information too many times in one chapter will send you back to the start of that chapter, and filling too much wrong information throughout the book will alter your fate, and possibly give you a bad ending.\n", 30);
 
             Title("What is your name, dear reader?");
-            currentPlayer.name = CenteredReadLine(); // understand the concept behind this pls
+            currentPlayer.name = Console.ReadLine(); // understand the concept behind this pls
             Thread.Sleep(2000);
 
             CenterText("Press any key to continue.");
@@ -114,7 +125,9 @@ namespace Kasanaysayan
             CenterText(@"   ||'''| |''||''|''|");
             CenterText(@"   ``""""""`""`""""))""""`""""`");
             Console.WriteLine("\nYou open your eyes to a colosseum-like scene, wherein you see three priests");
-            Choice("cry", "scream");
+					
+            Choice("cry", "scream", "cry some more");
+					
             CenterText("Press any button to proceed.");
             Console.ReadKey(true);
             Thread.Sleep(1000);
@@ -122,32 +135,31 @@ namespace Kasanaysayan
 
         }
 
-        static void QuizGame()
+        static void ChapterOneQuiz()
         {
+						string[] correctAnswers = { "GOMBURZA", "Gomez", "Burgos", "Zamora" };
+						int score = 0;
+					
             Typewrite("A history book appears in front of you, with blank pages for you to seemingly fill in.", 50);
             Thread.Sleep(2000);
 
-            string[] correctAnswers = { "GOMBURZA", "Gomez", "Burgos", "Zamora" };
-            int score = 0;
+					CenterText(@"  __________________   __________________");
+					CenterText(@".-/|                  \ /                  |\-.");
+					CenterText(@"||||                   |                   ||||");
+					CenterText(@"||||                   |     GOMBURZA      ||||");
+					CenterText(@"||||      Gomez        |                   ||||");
+					CenterText(@"||||                   |                   ||||");
+					CenterText(@"||||                   |                   ||||");
+					CenterText(@"||||                   |       Burgos      ||||");
+					CenterText(@"||||                   |                   ||||");
+					CenterText(@"||||      Zamora       |                   ||||");
+					CenterText(@"||||                   |                   ||||");
+					CenterText(@"||||__________________ | __________________||||");
+					CenterText(@"||/===================\|/===================\||)");
+					CenterText(@"`--------------------~___~-------------------''");
 
             while (score < 4)
             {
-                Console.Clear();
-                CenterText(@"  __________________   __________________");
-                CenterText(@".-/|                  \ /                  |\-.");
-                CenterText(@"||||                   |                   ||||");
-                CenterText(@"||||                   |     GOMBURZA      ||||");
-                CenterText(@"||||      Gomez        |                   ||||");
-                CenterText(@"||||                   |                   ||||");
-                CenterText(@"||||                   |                   ||||");
-                CenterText(@"||||                   |       Burgos      ||||");
-                CenterText(@"||||                   |                   ||||");
-                CenterText(@"||||      Zamora       |                   ||||");
-                CenterText(@"||||                   |                   ||||");
-                CenterText(@"||||__________________ | __________________||||");
-                CenterText(@"||/===================\|/===================\||)");
-                CenterText(@"`--------------------~___~-------------------''");
-
                 Console.WriteLine("\nThe three priests who were martyred are collectively called _____. These priests are ___, ____, and _____.");
                 string[] userAnswers = Console.ReadLine().Split(", ");
 
